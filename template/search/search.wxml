@@ -1,0 +1,12 @@
+
+
+<template name="search">
+  <view class="search">
+    <form class="search-form fl" bindsubmit='query'>
+      <input name="q" value="{{q}}"></input>
+      <button form-type="submit">
+        <image src="../../images/icon/search.png"></image>
+      </button>
+    </form>
+  </view>
+</template>

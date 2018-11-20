@@ -1,0 +1,12 @@
+/* 专辑列表 */
+@import "../../template/song/song.wxss";
+/* player */
+@import "/template/player/player.wxss";
+
+
+.scroll-songs{
+  height:calc(100vh - 120rpx);
+}
+.songs-list-view{
+  padding:20rpx;
+}

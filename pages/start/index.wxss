@@ -1,0 +1,26 @@
+page{
+  background-color: #b3d4db;
+}
+.container{
+  display:flex;
+  height:100vh;
+  justify-content: center;
+  align-items: center;
+}
+image{
+  display:block;
+  width:400rpx;
+  height:400rpx;
+  margin-bottom:300rpx;
+}
+button{
+  display: inline-block;
+  width:100%;
+  border:1px solid #fff;
+  background:transparent;
+  font-size:14px;
+  color:#fff;
+}
+button::after{
+  border:none;
+}

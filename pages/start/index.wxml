@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="start">
+    <image src="../../images/icon/start.png"></image>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">开启音乐之旅</button>
+  </view>
+</view>

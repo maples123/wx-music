@@ -1,0 +1,21 @@
+<!-- 搜索模板 -->
+<import src="/template/search/search.wxml"/>
+<!-- 专辑列表 -->
+<import src="/template/song/song.wxml"/>
+<!--  player -->
+<import src="/template/player/player.wxml"/>
+
+
+
+<view class="container">
+  <template is="search" data="{{q}}"/>
+  <scroll-view scroll-y bindscrolltolower="morePage">
+    <view class="list">
+      <template is="song-list" data="{{songs}}"/>
+    </view>
+  </scroll-view>
+</view>
+
+
+<!-- 底部播放 -->
+<template is="player" data="{{...thatSong}}"></template>

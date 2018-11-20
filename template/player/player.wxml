@@ -1,0 +1,17 @@
+
+<template name="player">
+
+  <view class="player">
+    <navigator hover-class='none' url="/pages/player/index?name={{song_name}}&id={{song_mid}}" class="player-cover">
+      <image src="{{album_min || '/images/default_album.jpg'}}" mode="widthFix"></image>
+    </navigator>
+    <view class="player-btm" bindtap="musicTap">
+      <image src="../../images/icon/{{paused === false ? 'stop' : 'player'}}.png" mode="widthFix"  data-method="play"></image>
+    </view>
+    <navigator hover-class='none' url="/pages/player/index?name={{song_name}}&id={{song_mid}}"  class="player-album">
+      <text class="substr">{{song_name || "未添加歌曲"}}</text>
+      <text class="name">{{song_orig || "未知歌手"}}</text>
+    </navigator>
+  </view>
+
+</template>

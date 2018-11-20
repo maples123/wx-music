@@ -1,0 +1,53 @@
+<view class="container">
+  <!-- 歌曲 -->
+  <view class="chat-head">
+    <view class="chat-song">
+      <image src="{{chatSong.album_big}}"></image>
+      <view class="song">
+        <view class="song-top">
+          <text class="song-name substr">{{chatSong.song_name}}</text>
+          <text class="num">评论数({{chatList.length}})</text>
+        </view>
+        <text class="f12">{{chatSong.song_orig}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 评论列表 -->
+  <scroll-view class="chat-list-view" scroll-y bindscrolltolower="chatScroll">
+    <view class="chat-list">
+      <view 
+        class="chat-item" 
+        wx:for="{{chatList}}"
+        wx:key="index"
+      >
+        <view class="caht-user">
+          <image src="{{item.userInfo.avatarUrl}}"></image>
+          <view class="user">
+            <view class="user-info">
+              <text class="user-name">{{item.userInfo.nickName}}</text>
+              <text class="f12">{{item.time}}</text>
+            </view>
+            
+            <!-- <view class="thumb">
+              <text>{{thumbNum === 0 ? "" : thumbNum}}</text>
+              <image 
+                src="../../images/icon/{{thumb === false ? 'dian-no' : 'dian'}}.png"
+                bindtap="thumbClick"
+                data-index="{{index}}"
+              ></image>
+            </view> -->
+          </view>
+        </view>
+        <view class="chat-con">{{item.chat}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="chat-form">
+  <form class="form fl" bindsubmit="addChat">
+    <input name="chat" value="{{chat}}"/>
+    <button form-type="submit">发送</button>
+  </form>
+</view>
+

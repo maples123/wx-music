@@ -1,0 +1,52 @@
+<!-- 专辑列表 -->
+<import src="/template/song/song.wxml"/>
+<!--  player -->
+<import src="/template/player/player.wxml"/>
+<!-- 打包歌曲推荐的url -->
+<wxs src="../../commen/regionurl.wxs" module="commen"></wxs>
+
+<view class="container">
+  <!-- 头部选项 -->
+  <view class="header">
+    <navigator class="on" hover-class='on'>推荐</navigator>
+    <navigator hover-class='on' url="/pages/like/index">歌单</navigator>
+    <navigator hover-class='on' url="/pages/search/index">搜索</navigator>
+  </view>
+  <!-- banner图 -->
+  <view class="home-banner">
+    <swiper 
+      indicator-dots="{{true}}" 
+      indicator-color="#fff"
+      indicator-active-color="rgba(0,255,255,.5)" 
+      autoplay 
+      circular
+      interval="3000">
+      <swiper-item wx:for="{{banner}}" wx:for-item="bannerItem" bindtap="actionBanner" data-action="{{bannerItem}}">
+        <image src="{{bannerItem.img}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 地区语言 -->
+  <view class="regio-type">
+    <navigator url="{{commen.regionUrl(regionItem)}}" wx:for="{{region}}" wx:for-item="regionItem">
+      <image src="../../images/icon/music.png"></image>
+      <text>{{regionItem.name}}</text>
+    </navigator>
+  </view>
+  
+  <!-- 歌曲推荐列表  -->
+  <view class="home-menu" wx:for="{{sheets}}" wx:for-item="sheet">
+    <navigator class="menu-title" url="{{commen.regionUrl(sheet)}}">
+      <image src="../../images/icon/menu.png"></image>
+      <text>{{sheet.name}}</text>
+    </navigator>
+    <view class="menu-con">
+      <template is="song-list" data="{{...sheet}}"/>
+    </view>
+  </view>
+  <view class="emtipy"></view>
+</view>
+<!-- 底部播放 -->
+<template is="player" data="{{...thatSong}}"></template>
+

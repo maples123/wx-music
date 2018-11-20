@@ -1,0 +1,24 @@
+@import "/template/search/search.wxss";
+@import "/template/player/player.wxss";
+
+.history-list{
+  margin-top:20rpx;
+}
+.history-list .history{
+  display:flex;
+  padding:20rpx 10rpx;
+}
+.history-list .history .history-pic{
+  width:60rpx;
+  height:60rpx;
+}
+.history-list .history navigator{
+  width:620rpx;
+  padding-top:5rpx;
+  border-bottom:1px solid #ccc;
+  box-sizing: border-box;
+}
+.history-list .history .close{
+  width:55rpx;
+  height:55rpx;
+}

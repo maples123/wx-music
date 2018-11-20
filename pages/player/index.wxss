@@ -1,0 +1,146 @@
+@keyframes rotate{
+  to{
+    transform: rotate(360deg)
+  }
+  from{
+    transform: rotate(0deg)
+  }
+}
+
+
+.container{
+  overflow: hidden;
+  position:relative;
+  height:100vh;
+}
+.player-bg{
+  position:absolute;
+  z-index:-1;
+  width:100vw;
+  height:100vh;
+  filter: blur(16px);
+  background-color:rgba(0,0,0,.2);
+}
+
+
+.player-tab{
+  display:flex;
+  height:calc(100vh - 120px);
+}
+.player-tab .player-swiper{
+  flex:1;
+  height:100%;
+}
+.player-tab .player-swiper .player-cover{
+  display:flex;
+  height:100%;
+  background:radial-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4) 235rpx, transparent 236rpx) no-repeat center center / 470rpx 470rpx;
+  justify-content: center;
+  align-items: center;
+}
+.player-tab .player-swiper .player-cover image{
+  display:block;
+  width:450rpx;
+  height:450rpx;
+  margin:auto;
+  border-radius:50%;
+}
+.player-tab .player-swiper .player-cover image.play{
+  animation:rotate 10s infinite linear;
+}
+.player-tab .player-swiper .player-cover image.puse{
+  animation-play-state: paused;
+}
+
+.player-lyrics{
+  height:100%;
+}
+.player-lyrics swiper{
+  height:100%;
+  padding-top:50rpx;
+  box-sizing: border-box;
+  text-align:center;
+  color:#eee;
+}
+.player-lyrics swiper .on{
+  font-weight: 700;
+  color:#f5db00;
+}
+
+
+.player-bottom{
+  height:120px;
+}
+.player-menu{
+  display:flex;
+  justify-content: space-around;
+}
+.player-menu image{
+  width:70rpx;
+  height:70rpx;
+}
+
+.player-slider{
+  display:flex;
+  padding:0 5rpx;
+  font-size:12px;
+  color:#f6f6f6;
+  align-items: center;
+}
+.player-slider slider{
+  flex:1;
+  margin:20rpx 10px;
+}
+.player-btn image{
+  width:75rpx;
+  height:75rpx;
+}
+
+.psong-view{
+  z-index:999;
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  border-top-left-radius:20rpx;
+  border-top-right-radius:20rpx;
+  background-color:#fff;
+  font-size:12px;
+}
+.posongshow{
+  transform: translate(100%);
+}
+.on{
+  transform: translate(0%);
+}
+.psong-view .psong-header{
+  display:flex;
+  padding:20rpx;
+  border-bottom:1px solid #f9f9f9;
+  justify-content: space-between;
+  align-items: center;
+}
+.psong-view image{
+  width:60rpx;
+  height:60rpx;
+}
+.psong-list{
+  overflow: auto;
+  max-height:500rpx;
+  margin-top:20rpx;
+  margin-bottom:10rpx;
+}
+.psong-list .psong-item{
+  display:flex;
+  padding:10rpx 20rpx;
+  border-bottom:1px dashed #f9f9f9;
+  justify-content: space-between;
+  align-items: center;
+}
+.psong-list .psong-item .item-song{
+  flex:1;
+}
+.psong-list .psong-item .item-song text{
+  font-size:10px;
+  color:#999;
+}

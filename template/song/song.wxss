@@ -1,0 +1,19 @@
+.menu-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.menu-list .menu-item{
+  width:30%;
+  margin-right:5%;
+  margin-bottom:20rpx;
+}
+.menu-list .menu-item:nth-child(3n){
+  margin-right:0;
+}
+.menu-list .menu-item image{
+  width:100%;
+}
+.menu-list .menu-item text{
+  display:block;
+  font-size:12px;
+}

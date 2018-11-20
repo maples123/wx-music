@@ -1,0 +1,19 @@
+<!-- 搜索模板 -->
+<import src="/template/search/search.wxml"/>
+
+<import src="/template/player/player.wxml"/>
+
+
+<view class="container">
+
+  <template is="search" data="{{q}}"/>
+
+  <view class="history-list">
+    <view class="history" wx:for="{{history}}">
+      <image class="history-pic" src="../../images/icon/history.png"></image>
+      <navigator url="/pages/search/list?q={{item.name}}">{{item.name}}</navigator>
+      <image class="close" src="../../images/icon/close.png" data-item="{{item.name}}" bindtap="del"></image>
+    </view>
+  </view>
+</view>
+<template is="player" data="{{...thatSong}}"></template>

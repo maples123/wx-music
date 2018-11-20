@@ -1,0 +1,14 @@
+/* 歌曲搜索 */
+@import "/template/search/search.wxss";
+/* 专辑列表 */
+@import "/template/song/song.wxss";
+/* player */
+@import "/template/player/player.wxss";
+
+scroll-view{
+  overflow: hidden;
+  height:calc(100vh - 98px);
+}
+.list{
+  padding:20rpx;
+}

@@ -1,0 +1,15 @@
+<!-- 专辑列表 -->
+<import src="/template/song/song.wxml"/>
+<!--  player -->
+<import src="/template/player/player.wxml"/>
+
+<view class="container">
+  <scroll-view class="scroll-songs" scroll-y bindscrolltolower="morePage">
+    <view class="songs-list-view">
+      <template is="song-list" data="{{songs}}"/>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 底部播放 -->
+<template is="player" data="{{...thatSong}}"></template>

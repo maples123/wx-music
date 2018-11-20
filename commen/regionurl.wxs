@@ -1,0 +1,23 @@
+//打包歌曲列表的的url
+function regionUrl(sheet){
+
+  return "/pages/sheet/list?id=" + sheet.id + "&name=" + sheet.name;
+}
+
+//处理歌曲播放时间格式
+function toSongTime(n){
+
+  n = n || 0;
+
+  return ~~(n / 60) + ":" + (function(s){
+
+    s = Math.ceil(s);
+
+    return s <=9 ? "0" + s : s;
+  })(n % 60)
+}
+
+module.exports = { 
+  regionUrl: regionUrl,
+  toSongTime : toSongTime
+}

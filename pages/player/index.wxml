@@ -1,0 +1,93 @@
+
+<wxs src="../../commen/regionurl.wxs" module="commen"></wxs>
+
+<view class="container">
+
+  <!-- 歌曲背景图 -->
+  <image class="player-bg" src="{{thatSong.album_big}}"></image>
+  
+  <view class="player-tab">
+    <swiper class="player-swiper">
+      
+      <!-- 歌曲头像 -->
+      <swiper-item>
+        <view class="player-cover">
+          <image class="{{thatSong.paused === false ? 'play' : 'puse'}}" src="{{thatSong.album_big}}"></image>
+        </view>
+      </swiper-item>
+
+      <!-- 歌词 -->
+      <swiper-item class="player-lyrics">
+        <swiper 
+          vertical
+          display-multiple-items="{{multiple}}"
+          duration="{{duration}}"
+          current="{{current}}"
+        >
+          <swiper-item 
+            wx:for="{{lyrics}}" 
+            wx:key="{{millisecond}}" 
+            class="{{index === currentIndex && 'on'}}"
+          >
+            {{item.text}}
+          </swiper-item>
+        </swiper>
+      </swiper-item>
+
+    </swiper>
+  </view>
+  
+  <view class="player-bottom">
+  <!-- tab -->
+    <view class="player-menu" bindtap="musicTap">
+      <image src="../../images/icon/{{like ? 'like' : 'like-empty'}}.png/" data-method="like"></image>
+      <!-- <image src="../../images/icon/download.png/" data-method="download"></image> -->
+      <image src="../../images/icon/wechar.png/" data-method="chat"></image>
+      <image src="../../images/icon/more.png/" catchtap='showPsong'></image>
+    </view>
+
+    <!-- 歌曲播放的进度条 -->
+    <view class="player-slider">
+      <text>{{commen.toSongTime(thatSong.currentTime)}}</text>
+      <slider 
+        bindchange="slider2change"
+        step="1"
+        activeColor="#b3d4d8"
+        block-size="12"
+        max="{{~~thatSong.duration || 0}}"
+        value="{{~~thatSong.currentTime || 0}}"
+        bindchange="setSeek"
+        />
+      <text>{{commen.toSongTime(thatSong.duration)}}</text>
+    </view>
+
+    <!-- 歌曲的播放停止以及切换 -->
+    <view class="player-menu player-btn" bindtap="musicTap">
+      <image src="../../images/icon/prev.png/" data-method="prev"></image>
+      <image src="../../images/icon/{{thatSong.paused === false ? 'stop' : 'player'}}.png" data-method="play"></image>
+      <image src="../../images/icon/next.png/" data-method="next"></image>
+    </view>
+  </view>
+
+  <!-- 歌单 -->
+  <view class="psong-view {{posongshow === false ? 'posongshow' : 'on'}}">
+    <view class="psong-header">
+      <text>播放列表 ({{thatSongs.length}})</text>
+      <image src="../../images/icon/guanbi.png" bindtap='showPsong'></image>
+    </view>
+    <view class="psong-list" bindtap="onPlayer" data-songs="{{thatSongs}}">
+      <view class="psong-item" wx:for="{{thatSongs}}">
+        <view class="item-song substr" data-song="{{item}}">
+          {{item.song_name}}
+          <text data-song="{{item}}"> - {{item.song_orig}}</text>
+        </view>
+        <image 
+          src="../../images/icon/close.png" 
+          data-song="{{item}}" 
+          catchtap='delThatpsong'
+        ></image>
+      </view>
+    </view>
+  </view>
+  
+</view>
